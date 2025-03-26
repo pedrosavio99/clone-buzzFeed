@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>BUZZFEED</h1>
+  <h2>Você seria um herói ou vilão?</h2>
+  <div class="question" *ngIf="currentQuestion < questions.length">
+    <h3>{{ questions[currentQuestion].text }}</h3>
+  </div>
+  <div class="options" *ngIf="currentQuestion < questions.length">
+    <button *ngFor="let option of questions[currentQuestion].options" (click)="chooseOption(option.value)">
+      {{ option.text }}
+    </button>
+  </div>
+  <div *ngIf="result" class="result">
+    <h3>{{ result }}</h3>
+    <button (click)="reset()">Jogar Novamente</button>
+  </div>
+</div>
